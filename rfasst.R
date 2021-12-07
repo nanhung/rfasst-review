@@ -1,3 +1,5 @@
+devtools::install_github("JGCRI/rfasst")
+
 library("rfasst")
 library(magrittr)
 data.wd <- system.file("extdata", package="rfasst")
@@ -59,4 +61,9 @@ unique(em.2050$region)
 unique(em.2050$pollutant)
 unique(em.2050$value) # unit
 
-m2_get_conc_pm25(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=T,map=T) 
+m2_get_conc_pm25(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=T,map=F)
+m3_get_mort_pm25(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=T, map=F) 
+m3_get_daly_o3(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=T, map=F) 
+m3_get_mort_o3_ecoloss(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=T, map=F) # not work
+
+m3_get_yll_o3_ecoloss(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=T, map=F) 
