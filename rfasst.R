@@ -62,8 +62,18 @@ unique(em.2050$pollutant)
 unique(em.2050$value) # unit
 
 m2_get_conc_pm25(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=T,map=F)
+
+#
 m3_get_mort_pm25(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=T, map=F) 
 m3_get_daly_o3(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=T, map=F) 
 m3_get_mort_o3_ecoloss(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=T, map=F) # not work
-
+# Database scenarios:  Reference_gcam5p3_release                    
+# Error in m3_get_mort_o3(db_path, query_path, db_name, prj_name, scen_name,  : 
+#   argument "queries" is missing, with no default
 m3_get_yll_o3_ecoloss(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=T, map=F) 
+
+#
+m4_get_ryl_aot40(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=T, map=F) 
+m4_get_ryl_mi(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=T, map=F)
+
+ryl.aot40.2050<-dplyr::bind_rows(m4_get_ryl_aot40(db_path,query_path,db_name,prj_name,scen_name,queries,saveOutput=F, map=F)) %>% dplyr::filter(year==2050)
